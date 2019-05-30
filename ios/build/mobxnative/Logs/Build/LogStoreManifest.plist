@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>9</integer>
+	<key>logs</key>
+	<dict>
+		<key>C04A41AA-9385-4C8B-9026-673C7FD1C085</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>C04A41AA-9385-4C8B-9026-673C7FD1C085.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>E</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>mobxnative project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>mobxnative</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project mobxnative with scheme mobxnative and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>578741330.58210695</real>
+			<key>timeStoppedRecording</key>
+			<real>578741339.252823</real>
+			<key>title</key>
+			<string>Building project mobxnative with scheme mobxnative and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>C04A41AA-9385-4C8B-9026-673C7FD1C085</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
