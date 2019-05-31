@@ -1,4 +1,4 @@
-import { AsyncStorage } from "react-native"
+import AsyncStorage from '@react-native-community/async-storage';
 
 export async function storeData(key, value){
     try {
@@ -33,7 +33,7 @@ export async function wrappedFetch(url, method, query={}){
         return fetch(url)
             .then((response) => response.json())
             .then((responseJson) => {
-                return responseJson;
+                return Promise.resolve(responseJson)
             })
             .catch((error) => {
                 console.error(error);
@@ -51,7 +51,7 @@ export async function wrappedFetch(url, method, query={}){
             )
             .then((response) => response.json())
             .then((responseJson) => {
-                return responseJson;
+                return Promise.resolve(responseJson)
             })
             .catch((error) => {
                 console.error(error);

@@ -6,6 +6,7 @@ import {
   View,
 } from 'react-native'
 import App from './App'
+import Login from './components/login/login'
 import { Router,Stack, Scene } from 'react-native-router-flux'
 
 export default class Main extends Component {
@@ -14,21 +15,17 @@ export default class Main extends Component {
       <Router sceneStyle={{ backgroundColor: '#F5FCFF' }}>
           <Stack key='root'>
               <Scene 
+              key='login'
+              component={Login}
+              title=''
+              hideNavBar={true}
+              />
+              <Scene 
               key='app'
               component={App}
               title=''
               hideNavBar={true}
               />
-              {/* <Scene 
-              key='movieList'
-              component={MovieList}
-              title='热映电影'
-              />
-              <Scene 
-              key='movieDetail'
-              component={MovieDetail}
-              title='电影详情'
-              /> */}
           </Stack>
       </Router>
     )

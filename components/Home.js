@@ -14,7 +14,7 @@ export default class Home extends Component {
         }
     }
     componentDidMount(){
-        Util.wrappedFetch()
+        // Util.wrappedFetch()
     }
     
     render() {
