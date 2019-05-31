@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, Button } from 'react-native'
 import { GiftedForm, GiftedFormManager } from 'react-native-gifted-form'
 import { HOST } from '../constant' 
 import { storeData, wrappedFetch } from '../request'
+import { Actions } from 'react-native-router-flux'
+
 
 const styles = StyleSheet.create({
         myButton:{
@@ -37,13 +39,13 @@ export default class LoginByAccount extends Component {
                       account: this.state.form.phone,
                       password: this.state.form.password,
                     }
-        let data = wrappedFetch(url, 'post', query).then(
+        wrappedFetch(url, 'post', query).then(
             res => {
               console.log('res',res)
-              return res
+              storeData('token', res.data.sessionToken)
+              Actions.app()
             }
           )
-        return Promise.resolve(data)
     }
     
     render() {
@@ -113,7 +115,7 @@ export default class LoginByAccount extends Component {
                                     GiftedFormManager.reset('account');
                                     // storeData('token', res.data.sessionToken)
                                 }
-                            )
+                            ) 
                         }
                     }}
                 />

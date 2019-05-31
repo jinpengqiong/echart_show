@@ -1,7 +1,9 @@
 import React,{Component} from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { WebView } from 'react-native-webview';
-import * as Util from './request'
+import { retrieveData , wrappedFetch } from './request'
+import { Actions } from 'react-native-router-flux'
+
 
 const styles = StyleSheet.create({
     
@@ -14,7 +16,10 @@ export default class Home extends Component {
         }
     }
     componentDidMount(){
-        // Util.wrappedFetch()
+        let token = retrieveData('token')
+        if(token){
+            Actions.login()
+        }
     }
     
     render() {

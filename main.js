@@ -15,17 +15,18 @@ export default class Main extends Component {
       <Router sceneStyle={{ backgroundColor: '#F5FCFF' }}>
           <Stack key='root'>
               <Scene 
-              key='login'
-              component={Login}
-              title=''
-              hideNavBar={true}
-              />
-              <Scene 
               key='app'
               component={App}
               title=''
               hideNavBar={true}
               />
+              <Scene 
+              key='login'
+              component={Login}
+              title=''
+              hideNavBar={true}
+              />
+              
           </Stack>
       </Router>
     )
