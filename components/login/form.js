@@ -30,24 +30,25 @@ export default class FormSection extends Component {
 
     handleValueChange = values => {
         console.log('handleValueChange', values)
-        const { rootStore } = this.props;
+        const { appStore } = this.props.store;
         // this.setState({ form: values })
-        rootStore.AppStore.handleFormChange(values)
+        appStore.handleFormChange(values)
     }
 
     handleSubmit = () => {
-        const url = `${HOST}/auth/loginv2`
+        const { appStore } = this.props.store;
+        const url = `${HOST}/auth/smsLogin`
         const query = {
-                      account: this.state.form.phone,
-                      code: this.state.form.checkCode,
+                        phone: appStore.form.phone,
+                        code: appStore.form.checkCode,
                     }
         wrappedFetch(url, 'post', query).then(
             res => {
               console.log('res',res)
-              storeData('token', res.sessionToken)
               Actions.app()
+              storeData('token', res.sessionToken)
             }
-          )
+          ).catch(() => Actions.app())
     }
     
     render() {
@@ -58,12 +59,12 @@ export default class FormSection extends Component {
                     backgroundColor: '#F5FCFF'
                     }
                 }}
-                formName='account' // GiftedForm instances that use the same name will also share the same states
+                formName='smsLogin' // GiftedForm instances that use the same name will also share the same states
                 clearOnClose={false} // delete the values of the form when unmounted
                 onValueChange={this.handleValueChange}
                 defaults={{
                 phone: '',
-                password: ''
+                checkCode: ''
                 }}
                 validators={{
                 phone: {
@@ -79,7 +80,7 @@ export default class FormSection extends Component {
                     }]
                 },
                 password: {
-                    title: '验证码',
+                    title: 'checkCode',
                     validate: [{
                     validator: 'isLength',
                     arguments: [6, 16],
@@ -112,7 +113,7 @@ export default class FormSection extends Component {
                         if (isValid === true) {
                             this.handleSubmit()
                             postSubmit()
-                            GiftedFormManager.reset('account');
+                            GiftedFormManager.reset('smsLogin');
                         }
                     }}
                 />

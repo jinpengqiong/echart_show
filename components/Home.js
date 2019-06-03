@@ -29,9 +29,10 @@ const styles = StyleSheet.create({
     }
     
     render() {
+        const { appStore } = this.props.store;
         return (
             <View>
-                <Text>{JSON.stringify(this.props.store.appStore.form)}</Text>
+                <Text>{JSON.stringify(appStore.form)}</Text>
                 {/* <WebView source={{ uri: 'http://datav.aliyuncs.com/share/d081065571c55c57a5916b1efe181579' }} /> */}
             </View>
             

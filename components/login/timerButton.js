@@ -6,14 +6,19 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import { wrappedFetch } from '../request'
+import { inject, observer } from 'mobx-react';
+import { HOST } from '../constant' 
 
 var Dimensions = require('Dimensions');
 var screenWidth = Dimensions.get('window').width;
 
+@inject('store')
+@observer
 export default  class TimerButton extends Component {
 
     constructor(props) {
         super(props)
+        this.store = this.props.store.appStore
         this.state = {
             timerCount: this.props.timerCount || 60,
             timerTitle: this.props.timerTitle || '获取验证码',
@@ -61,14 +66,13 @@ export default  class TimerButton extends Component {
     }
 
     sendCheckCode = () => {
-        const { timerCount } = this.state
-        // if(phone === ''){
-        // this.props.sendMessage('请先输入手机号','error')
-        // return
-        // }
+        const { appStore } = this.props.store;
+        if(appStore.form.phone === ''){
+            return
+        }
         const url = `${HOST}/smsCode`
         const query = {
-                    phone: this.state.phone,
+                    phone: appStore.form.phone,
                     }
         wrappedFetch(url, 'post', query).then(
             res => {
@@ -86,6 +90,7 @@ export default  class TimerButton extends Component {
                     if (!counting &&selfEnable) {
                         this.setState({selfEnable: false});
                         this.shouldStartCountting(true);
+                        this.sendCheckCode()
                     };
                 }}>
                     <View
