@@ -42,7 +42,7 @@ export default class LoginByAccount extends Component {
         wrappedFetch(url, 'post', query).then(
             res => {
               console.log('res',res)
-              storeData('token', res.data.sessionToken)
+              storeData('token', res.sessionToken)
               Actions.app()
             }
           )
@@ -109,13 +109,9 @@ export default class LoginByAccount extends Component {
                     }}
                     onSubmit={(isValid, values, validationResults, postSubmit = null, modalNavigator = null) => {
                         if (isValid === true) {
-                            this.handleSubmit().then(
-                                res => {
-                                    postSubmit()
-                                    GiftedFormManager.reset('account');
-                                    // storeData('token', res.data.sessionToken)
-                                }
-                            ) 
+                            this.handleSubmit()
+                            postSubmit()
+                            GiftedFormManager.reset('account');
                         }
                     }}
                 />

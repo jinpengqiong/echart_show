@@ -5,6 +5,7 @@ import {
     View,
     TouchableOpacity,
 } from 'react-native';
+import { wrappedFetch } from '../request'
 
 var Dimensions = require('Dimensions');
 var screenWidth = Dimensions.get('window').width;
@@ -59,30 +60,51 @@ export default  class TimerButton extends Component {
         clearInterval(this.interval)
     }
 
+    sendCheckCode = () => {
+        const { timerCount } = this.state
+        // if(phone === ''){
+        // this.props.sendMessage('请先输入手机号','error')
+        // return
+        // }
+        const url = `${HOST}/smsCode`
+        const query = {
+                    phone: this.state.phone,
+                    }
+        wrappedFetch(url, 'post', query).then(
+            res => {
+                console.log('code',res)
+            }
+        )
+    }
+
     render() {
         const {onClick, style, textStyle, disableColor} = this.props;
         const {counting, timerTitle, selfEnable} = this.state;
         return (
-            <TouchableOpacity activeOpacity={counting ? 1 : 0.8} onPress={() => {
-                if (!counting &&selfEnable) {
-                    this.setState({selfEnable: false});
-                    this.shouldStartCountting(true);
-                };
-            }}>
-                <View
-                    style={styles.styleCodeView}>
-                    <Text
-                        style={[{fontSize: 12}, textStyle, {color: ((!counting && selfEnable) ? textStyle.color : disableColor || 'gray')}]}>{timerTitle}</Text>
-                </View>
-            </TouchableOpacity>
+            <View style={styles.container}>
+                <TouchableOpacity activeOpacity={counting ? 1 : 0.8} onPress={() => {
+                    if (!counting &&selfEnable) {
+                        this.setState({selfEnable: false});
+                        this.shouldStartCountting(true);
+                    };
+                }}>
+                    <View
+                        style={styles.styleCodeView}>
+                        <Text
+                            style={[{fontSize: 12}, textStyle, {color: ((!counting && selfEnable) ? textStyle.color : disableColor || 'gray')}]}>{timerTitle}</Text>
+                    </View>
+                </TouchableOpacity>
+            </View>
+            
         )
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        marginTop: 20
+        position: 'absolute',
+        bottom: 200,
+        right: 10
     },
     styleCodeView: {
         height: 28,

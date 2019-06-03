@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import { View, Text, StyleSheet, Dimensions } from 'react-native'
 import TimerButton from './timerButton'
-
+import FormSection from './form'
 
 
 const styles = StyleSheet.create({
@@ -22,11 +22,14 @@ export default class LoginBySms extends Component {
     
     render() {
         return (
-            <TimerButton
-            // style={{width: screenWidth*0.2,marginRight: 10}}
-            timerCount={60}
-            textStyle={{color: '#dc1466'}}
-            /> 
+            <>
+                <FormSection />
+                <TimerButton
+                timerCount={60}
+                textStyle={{color: '#dc1466'}}
+                /> 
+            </>
+            
         )
     }
 }
