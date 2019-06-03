@@ -45,7 +45,7 @@ export default class LoginByAccount extends Component {
               storeData('token', res.sessionToken)
               Actions.app()
             }
-          )
+          ).catch(err => console.log(err))
     }
     
     render() {

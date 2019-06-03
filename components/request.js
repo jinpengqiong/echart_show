@@ -36,7 +36,7 @@ export async function wrappedFetch(url, method, query={}){
                 return Promise.resolve(responseJson)
             })
             .catch((error) => {
-                console.error(error);
+              return Promise.reject(error)
             });
     }
     if(method === 'post'){
@@ -54,7 +54,7 @@ export async function wrappedFetch(url, method, query={}){
                 return Promise.resolve(responseJson)
             })
             .catch((error) => {
-                console.error(error);
+              return Promise.reject(error)
             });
     }
 }

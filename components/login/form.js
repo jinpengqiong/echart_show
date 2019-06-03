@@ -48,7 +48,7 @@ export default class FormSection extends Component {
               Actions.app()
               storeData('token', res.sessionToken)
             }
-          ).catch(() => Actions.app())
+          ).catch(err => console.log(err))
     }
     
     render() {
@@ -79,7 +79,7 @@ export default class FormSection extends Component {
                     message: '请输入正确的手机号'
                     }]
                 },
-                password: {
+                checkCode: {
                     title: 'checkCode',
                     validate: [{
                     validator: 'isLength',
