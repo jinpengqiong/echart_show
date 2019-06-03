@@ -2,7 +2,7 @@ import { observable, action } from 'mobx';
 
 
 class AppStore {
-  @observable form = {};
+  @observable form = { phone: '18113062680'};
 
 
   @action
