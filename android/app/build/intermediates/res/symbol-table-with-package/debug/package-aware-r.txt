@@ -17,6 +17,8 @@ anim catalyst_push_up_in
 anim catalyst_push_up_out
 anim catalyst_slide_down
 anim catalyst_slide_up
+anim picker_enter
+anim picker_exit
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -653,10 +655,12 @@ id alertTitle
 id all
 id always
 id async
+id barLayout
 id beginning
 id blocking
 id bottom
 id buttonPanel
+id cancel
 id catalyst_redbox_title
 id center
 id centerCrop
@@ -668,6 +672,7 @@ id chronometer
 id clip_horizontal
 id clip_vertical
 id collapseActionView
+id confirm
 id content
 id contentPanel
 id custom
@@ -704,6 +709,9 @@ id line1
 id line3
 id listMode
 id list_item
+id loopViewOne
+id loopViewThree
+id loopViewTwo
 id message
 id middle
 id multiply
@@ -714,6 +722,10 @@ id notification_background
 id notification_main_column
 id notification_main_column_container
 id parentPanel
+id pickerLayout
+id pickerViewAlone
+id pickerViewAloneLayout
+id pickerViewLinkage
 id progress_circular
 id progress_horizontal
 id radio
@@ -821,6 +833,9 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout picker_view
+layout picker_view_alone
+layout picker_view_linkage
 layout redbox_item_frame
 layout redbox_item_title
 layout redbox_view
@@ -1071,6 +1086,8 @@ style ClockTimePickerStyle
 style DefaultExplainingPermissionsTheme
 style DialogAnimationFade
 style DialogAnimationSlide
+style Dialog_Full_Screen
+style PickerAnim
 style Platform_AppCompat
 style Platform_AppCompat_Light
 style Platform_ThemeOverlay_AppCompat

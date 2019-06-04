@@ -46,7 +46,7 @@ export default class FormSection extends Component {
             res => {
               console.log('res',res)
               Actions.app()
-              storeData('token', res.sessionToken)
+              storeData('token', JSON.stringify(res.sessionToken))
             }
           ).catch(err => console.log(err))
     }

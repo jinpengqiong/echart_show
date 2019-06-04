@@ -1,8 +1,11 @@
 import React,{Component} from 'react'
 import { View } from 'react-native'
 import { WebView } from 'react-native-webview';
+import { inject, observer } from 'mobx-react';
+import CommonActionButton from './actionButton/actionButton'
 
-
+@inject('store')
+@observer
 export default class Interaction extends Component {
     constructor(props){
         super(props);
@@ -11,8 +14,12 @@ export default class Interaction extends Component {
     }
     
     render() {
+        const { appStore } = this.props.store;
         return (
-            <WebView source={{ uri: 'http://datav.aliyuncs.com/share/79702443f27bacaf626d743b0de3638e' }} />
+            <>
+                <CommonActionButton />
+                <WebView source={{ uri: appStore.url2 }} />   
+            </>
         )
     }
 }

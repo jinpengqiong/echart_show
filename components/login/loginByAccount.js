@@ -4,7 +4,7 @@ import { GiftedForm, GiftedFormManager } from 'react-native-gifted-form'
 import { HOST } from '../constant' 
 import { storeData, wrappedFetch } from '../request'
 import { Actions } from 'react-native-router-flux'
-
+import { inject, observer } from 'mobx-react';
 
 const styles = StyleSheet.create({
         myButton:{
@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
             // top:100
         }
   })
-
+@inject('store')
+@observer
 export default class LoginByAccount extends Component {
     constructor(props){
         super(props)
@@ -34,6 +35,7 @@ export default class LoginByAccount extends Component {
     }
 
     handleSubmit = () => {
+        const { appStore } = this.props.store;
         const url = `${HOST}/auth/loginv2`
         const query = {
                       account: this.state.form.phone,
@@ -42,10 +44,12 @@ export default class LoginByAccount extends Component {
         wrappedFetch(url, 'post', query).then(
             res => {
               console.log('res',res)
-              storeData('token', res.sessionToken)
+              appStore.getToken(res.sessionToken)
+              appStore.getUserId(res.userID)
+              storeData('token', JSON.stringify(res.sessionToken))
               Actions.app()
             }
-          ).catch(err => console.log(err))
+          ).catch(err => console.error(err))
     }
     
     render() {

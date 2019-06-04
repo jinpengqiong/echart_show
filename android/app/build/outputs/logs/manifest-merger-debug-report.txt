@@ -7,6 +7,7 @@ INJECTED from /Users/mac/Desktop/echart_show/android/app/src/main/AndroidManifes
 MERGED from /Users/mac/Desktop/echart_show/android/app/src/main/AndroidManifest.xml:1:1-28:12
 MERGED from [:react-native-vector-icons] /Users/mac/Desktop/echart_show/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-image-picker] /Users/mac/Desktop/echart_show/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-23:12
+MERGED from [:react-native-picker] /Users/mac/Desktop/echart_show/node_modules/react-native-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-13:12
 MERGED from [:@react-native-community_async-storage] /Users/mac/Desktop/echart_show/node_modules/@react-native-community/async-storage/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-webview] /Users/mac/Desktop/echart_show/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-23:12
 MERGED from [com.facebook.react:react-native:0.59.4] /Users/mac/.gradle/caches/transforms-1/files-1.1/react-native-0.59.4.aar/176950584349e98203c70ebc6846825e/AndroidManifest.xml:2:1-13:12
@@ -149,6 +150,8 @@ MERGED from [:react-native-vector-icons] /Users/mac/Desktop/echart_show/node_mod
 MERGED from [:react-native-vector-icons] /Users/mac/Desktop/echart_show/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-image-picker] /Users/mac/Desktop/echart_show/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-image-picker] /Users/mac/Desktop/echart_show/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-picker] /Users/mac/Desktop/echart_show/node_modules/react-native-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-picker] /Users/mac/Desktop/echart_show/node_modules/react-native-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:@react-native-community_async-storage] /Users/mac/Desktop/echart_show/node_modules/@react-native-community/async-storage/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:@react-native-community_async-storage] /Users/mac/Desktop/echart_show/node_modules/@react-native-community/async-storage/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-webview] /Users/mac/Desktop/echart_show/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
@@ -231,6 +234,8 @@ INJECTED from /Users/mac/Desktop/echart_show/android/app/src/debug/AndroidManife
 		INJECTED from /Users/mac/Desktop/echart_show/android/app/src/debug/AndroidManifest.xml
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
 ADDED from /Users/mac/Desktop/echart_show/android/app/src/debug/AndroidManifest.xml:5:5-77
+MERGED from [:react-native-picker] /Users/mac/Desktop/echart_show/node_modules/react-native-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-78
+MERGED from [:react-native-picker] /Users/mac/Desktop/echart_show/node_modules/react-native-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-78
 	android:name
 		ADDED from /Users/mac/Desktop/echart_show/android/app/src/debug/AndroidManifest.xml:5:22-75
 provider#com.imagepicker.FileProvider
