@@ -3,6 +3,7 @@ import { View } from 'react-native'
 import { WebView } from 'react-native-webview';
 import { inject, observer } from 'mobx-react';
 import CommonActionButton from './actionButton/actionButton'
+import { retrieveData , wrappedFetch , clearData} from './request'
 
 @inject('store')
 @observer
@@ -11,6 +12,18 @@ export default class Interaction extends Component {
         super(props);
         this.state = {
         }
+    }
+
+    componentDidMount(){
+        const { appStore } = this.props.store;
+        appStore.getStartDate(null)
+        retrieveData('token').then(
+            res => {
+                if(!res){
+                    Actions.login()
+                }
+            }
+        )
     }
     
     render() {

@@ -20,6 +20,8 @@ const styles = StyleSheet.create({
         }
     }
     componentDidMount(){
+        const { appStore } = this.props.store;
+        appStore.getStartDate(null)
         retrieveData('token').then(
             res => {
                 if(!res){
