@@ -46,7 +46,7 @@ export default class LoginByAccount extends Component {
               console.log('res',res)
               appStore.getToken(res.sessionToken)
               appStore.getUserId(res.userID)
-              storeData('token', JSON.stringify(res.sessionToken))
+              storeData('token', res.sessionToken)
               Actions.app()
             }
           ).catch(err => console.error(err))

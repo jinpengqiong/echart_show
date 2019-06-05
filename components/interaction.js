@@ -18,7 +18,10 @@ export default class Interaction extends Component {
         return (
             <>
                 <CommonActionButton />
-                <WebView source={{ uri: appStore.url2 }} />   
+                <WebView source={{ uri: appStore.startDate? `http://datav.aliyuncs.com/share/79702443f27bacaf626d743b0de3638e?roomId=${appStore.roomId}&tsStart=${appStore.startDate}&tsEnd=${appStore.endDate}`
+                                                                :
+                                                            `http://datav.aliyuncs.com/share/79702443f27bacaf626d743b0de3638e?roomId=${appStore.roomId}`
+                }} />    
             </>
         )
     }

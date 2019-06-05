@@ -14,11 +14,11 @@ export async function retrieveData(key){
       const value = await AsyncStorage.getItem(key);
       if (value !== null) {
         console.log(value);
-        return value
+        return Promise.resolve(value)
       }
      } catch (error) {
        // Error retrieving data
-       console.log('_retrieveData err',error)
+       console.log('_retrieveData err',Promise.resolve(error))
      }
   }
 
@@ -32,7 +32,14 @@ export async function wrappedFetch(url, method, query={}){
     if(method === 'get'){
         return new Promise(
           function(resolve, reject){
-            fetch(url)
+            fetch(url, {
+              method: 'GET',
+              headers: {
+                'Authorization': token ? { Authorization: 'Bearer ' + token } : {},
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+              }
+            })
             .then((response) => response.json())
             .then((responseJson) => {
                 if(responseJson.error_code) return

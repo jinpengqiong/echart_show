@@ -12,7 +12,10 @@ export default class Fans extends Component {
         return (
             <>
                 <CommonActionButton />
-                <WebView source={{ uri: appStore.url3 }} />   
+                <WebView source={{ uri: appStore.startDate? `http://datav.aliyuncs.com/share/01e1c4f8db2235b28cc378c97557bd3b?roomId=${appStore.roomId}&tsStart=${appStore.startDate}&tsEnd=${appStore.endDate}`
+                                                                :
+                                                            `http://datav.aliyuncs.com/share/01e1c4f8db2235b28cc378c97557bd3b?roomId=${appStore.roomId}`
+                }} />    
             </>
         )
     }

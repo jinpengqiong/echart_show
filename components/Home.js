@@ -17,40 +17,44 @@ const styles = StyleSheet.create({
     constructor(props){
         super(props)
         this.state = {
-            data:null
         }
     }
     componentDidMount(){
-        const { appStore } = this.props.store;
-        if(!appStore.token){
-            Actions.login()
-        }
-        this.getChartRooms()
+        retrieveData('token').then(
+            res => {
+                if(!res){
+                    Actions.login()
+                }
+                this.getChartRooms(res)
+            }
+        )
+        
     }
 
-    getChartRooms = () => {
+    getChartRooms = token => {
         const { appStore } = this.props.store;
         const userId = appStore.userId
-        const token = appStore.token
-        const url = `${HOST}/users/${userId}/ownedRooms`
-        const query = {
-            limit: 100,
-            skip: 0,
-          }
-        fetch(url,
-            {
-                method: 'POST',
-                headers:{
-                    'content-type':'application/json',
-                    'Authorization': 'Bearer ' + token
-                },
-                body: JSON.stringify(query)
-            }).then((response) => response.json())
-            .then((responseJson) => {
-                this.setState({
-                    data:responseJson.data
-                })
-            }).catch(error => console.log(error))
+        // const token = appStore.token
+        const url = `${HOST}/users/${userId}/ownedRooms?limit=100&skip=0`
+        fetch(url, {
+            method: 'GET',
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            }
+          })
+          .then((response) => response.json())
+          .then((responseJson) => {
+            if(responseJson.error_code) return
+            let arr = responseJson.data.map(
+                item => {
+                  return item.name
+                }
+              )
+            appStore.getOriginalRoomsData(responseJson.data)
+            appStore.getFormatRoomsData(arr)
+            appStore.initRoomId(responseJson.data)
+          })
     }
 
     
@@ -59,13 +63,25 @@ const styles = StyleSheet.create({
         const { appStore } = this.props.store;
         return (
             <>
-                <View>
+                {/* <View>
                     <Text>{appStore.token}</Text>
                     <Text>{appStore.userId}</Text>
-                    <Text>{JSON.stringify(this.state.data)}</Text>
-                </View>
+                    <Text>{JSON.stringify(appStore.formatRoomsData)}</Text>
+                    <Text>{JSON.stringify(appStore.startDate)}</Text>
+                    <Text>{JSON.stringify(appStore.endDate)}</Text>
+                    <Text>{JSON.stringify(appStore.roomId)}</Text>
+                    <Text>
+                    { appStore.startDate? `http://datav.aliyuncs.com/share/d081065571c55c57a5916b1efe181579?roomId=${appStore.roomId}&tsStart=${appStore.startDate}&tsEnd=${appStore.endDate}`
+                                                                :
+                                                            `http://datav.aliyuncs.com/share/d081065571c55c57a5916b1efe181579?roomId=${appStore.roomId}`
+                    }
+                    </Text>
+                </View> */}
                 <CommonActionButton />
-                <WebView source={{ uri: appStore.url1 }} />   
+                <WebView source={{ uri: appStore.startDate? `http://datav.aliyuncs.com/share/d081065571c55c57a5916b1efe181579?roomId=${appStore.roomId}&tsStart=${appStore.startDate}&tsEnd=${appStore.endDate}`
+                                                                :
+                                                            `http://datav.aliyuncs.com/share/d081065571c55c57a5916b1efe181579?roomId=${appStore.roomId}`
+                }} />   
             </>
         )
     }

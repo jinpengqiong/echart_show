@@ -5,7 +5,7 @@ import ActionButton from 'react-native-action-button';
 import Picker from 'react-native-picker';
 import { View, Text, StyleSheet } from 'react-native'
 import { Actions } from 'react-native-router-flux'
-
+import { clearData } from '../request'
 
 @inject('store')
 @observer
@@ -18,11 +18,13 @@ export default class CommonActionButton extends Component {
   }
 
   selectChartRoom = () => {
+    const { appStore } = this.props.store;
     Picker.init({
-        pickerData: [1,2,3,4],
+        pickerData: appStore.formatRoomsData? appStore.formatRoomsData.toJS() : [],
         selectedValue: [1],
         onPickerConfirm: data => {
             console.log(data);
+            appStore.getRoomId(data)
         },
         onPickerCancel: data => {
             console.log(data);
@@ -38,6 +40,7 @@ export default class CommonActionButton extends Component {
 }
 
 selectTimeRange = () => {
+    const { appStore } = this.props.store;
     var year = ''
     var month = ''
     var day = ''
@@ -64,6 +67,8 @@ selectTimeRange = () => {
         this.setState({
             currentDate:str,
         })
+        appStore.getStartDate(str)
+        appStore.getCurrentDate()
     },
     onPickerCancel: (pickedValue, pickedIndex) => {
         console.log('date', pickedValue, pickedIndex);
@@ -126,6 +131,7 @@ _getCurrentDate(){
   }
 
   logout = () => {
+    clearData()
     Actions.login()
   }
 
