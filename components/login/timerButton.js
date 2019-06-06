@@ -67,7 +67,7 @@ export default  class TimerButton extends Component {
 
     sendCheckCode = () => {
         const { appStore } = this.props.store;
-        if(appStore.form.phone === ''){
+        if(appStore.form && appStore.form.phone === ''){
             return
         }
         const url = `${HOST}/smsCode`
