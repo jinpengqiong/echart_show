@@ -108,15 +108,12 @@ export default  class TimerButton extends Component {
 const styles = StyleSheet.create({
     container: {
         position: 'absolute',
-        bottom: 200,
+        bottom: '70%',
         right: 10
     },
     styleCodeView: {
         height: 28,
-        width: screenWidth*0.22,
-        borderColor: '#dc1466',
-        borderWidth: 1,
-        borderRadius: 5,
+        width: screenWidth*0.32,
         justifyContent: 'center',
         alignItems: 'center',
     },

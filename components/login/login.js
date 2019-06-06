@@ -23,7 +23,7 @@ export default class Login extends Component {
         return (
             <ScrollableTabView 
                 locked={false}
-                style={{marginTop: '50%' }}
+                style={{ marginTop: '50%', position:'relative' }}
                 initialPage={0}
                 renderTabBar={() => <DefaultTabBar/>}>
                 <LoginByAccount tabLabel="帐号登录" />

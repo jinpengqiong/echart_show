@@ -35,12 +35,12 @@ class AppStore {
 
   @action
   getStartDate(value) {
-    this.startDate = new Date(value).getTime();
+    this.startDate = parseInt(new Date(value).getTime()/1000);
   }
 
   @action
   getCurrentDate() {
-    this.endDate = new Date().getTime();
+    this.endDate = parseInt(new Date().getTime()/1000)
   }
 
   @action

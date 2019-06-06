@@ -17,17 +17,27 @@ export default class Fans extends Component {
                     Actions.login()
                 }
             }
-        )
+        ).catch( err => Actions.login())
     }
 
     render() {
         const { appStore } = this.props.store;
+        const tsStart = parseInt((new Date(new Date().toLocaleDateString()).getTime())/1000)
+        const tsEnd = parseInt((new Date().getTime())/1000)
         return (
             <>
-                <CommonActionButton />
-                <WebView source={{ uri: appStore.startDate? `http://datav.aliyuncs.com/share/01e1c4f8db2235b28cc378c97557bd3b?roomId=${appStore.roomId}&tsStart=${appStore.startDate}&tsEnd=${appStore.endDate}`
+                {/* <View>
+                    <Text>
+                    { appStore.startDate? `http://datav.aliyuncs.com/share/01e1c4f8db2235b28cc378c97557bd3b?roomid=${appStore.roomId}&tsStart=${appStore.startDate}&tsEnd=${appStore.endDate}`
                                                                 :
-                                                            `http://datav.aliyuncs.com/share/01e1c4f8db2235b28cc378c97557bd3b?roomId=${appStore.roomId}`
+                                                            `http://datav.aliyuncs.com/share/01e1c4f8db2235b28cc378c97557bd3b?roomid=${appStore.roomId}&tsStart=${tsStart}&tsEnd=${tsEnd}`
+                    }
+                    </Text>
+                </View> */}
+                <CommonActionButton />
+                <WebView source={{ uri: appStore.startDate? `http://datav.aliyuncs.com/share/01e1c4f8db2235b28cc378c97557bd3b?roomid=${appStore.roomId}&tsStart=${appStore.startDate}&tsEnd=${appStore.endDate}`
+                                                                :
+                                                            `http://datav.aliyuncs.com/share/01e1c4f8db2235b28cc378c97557bd3b?roomid=${appStore.roomId}&tsStart=${tsStart}&tsEnd=${tsEnd}`
                 }} />    
             </>
         )

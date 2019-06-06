@@ -29,15 +29,14 @@ const styles = StyleSheet.create({
                 }
                 this.getChartRooms(res)
             }
-        )
-        
+        ).catch( err => Actions.login())
     }
 
     getChartRooms = token => {
         const { appStore } = this.props.store;
         const userId = appStore.userId
         // const token = appStore.token
-        const url = `${HOST}/users/${userId}/ownedRooms?limit=100&skip=0`
+        const url = `${HOST}/users/${userId}/ownedManagedRooms2?limit=100&skip=0`
         fetch(url, {
             method: 'GET',
             headers: {
@@ -63,6 +62,8 @@ const styles = StyleSheet.create({
     
     render() {
         const { appStore } = this.props.store;
+        const tsStart = parseInt((new Date(new Date().toLocaleDateString()).getTime())/1000)
+        const tsEnd = parseInt((new Date().getTime())/1000)
         return (
             <>
                 {/* <View>
@@ -73,16 +74,16 @@ const styles = StyleSheet.create({
                     <Text>{JSON.stringify(appStore.endDate)}</Text>
                     <Text>{JSON.stringify(appStore.roomId)}</Text>
                     <Text>
-                    { appStore.startDate? `http://datav.aliyuncs.com/share/d081065571c55c57a5916b1efe181579?roomId=${appStore.roomId}&tsStart=${appStore.startDate}&tsEnd=${appStore.endDate}`
+                    { appStore.startDate? `http://datav.aliyuncs.com/share/d081065571c55c57a5916b1efe181579?roomid=${appStore.roomId}&tsStart=${appStore.startDate}&tsEnd=${appStore.endDate}`
                                                                 :
-                                                            `http://datav.aliyuncs.com/share/d081065571c55c57a5916b1efe181579?roomId=${appStore.roomId}`
+                                                            `http://datav.aliyuncs.com/share/d081065571c55c57a5916b1efe181579?roomid=${appStore.roomId}&tsStart=${tsStart}&tsEnd=${tsEnd}`
                     }
                     </Text>
                 </View> */}
                 <CommonActionButton />
-                <WebView source={{ uri: appStore.startDate? `http://datav.aliyuncs.com/share/d081065571c55c57a5916b1efe181579?roomId=${appStore.roomId}&tsStart=${appStore.startDate}&tsEnd=${appStore.endDate}`
+                <WebView source={{ uri: appStore.startDate? `http://datav.aliyuncs.com/share/d081065571c55c57a5916b1efe181579?roomid=${appStore.roomId}&tsStart=${appStore.startDate}&tsEnd=${appStore.endDate}`
                                                                 :
-                                                            `http://datav.aliyuncs.com/share/d081065571c55c57a5916b1efe181579?roomId=${appStore.roomId}`
+                                                            `http://datav.aliyuncs.com/share/d081065571c55c57a5916b1efe181579?roomid=${appStore.roomId}&tsStart=${tsStart}&tsEnd=${tsEnd}`
                 }} />   
             </>
         )

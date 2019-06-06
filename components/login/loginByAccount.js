@@ -93,13 +93,13 @@ export default class LoginByAccount extends Component {
                 <GiftedForm.TextInputWidget
                     name='phone'
                     title='手机号'
-                    placeholder='手机号'
+                    placeholder=''
                     clearButtonMode='while-editing'
                 />
                 <GiftedForm.TextInputWidget
                     name='password' // mandatory
                     title='密码'
-                    placeholder='密码'
+                    placeholder=''
                     clearButtonMode='while-editing'
                     secureTextEntry={true}
                 />

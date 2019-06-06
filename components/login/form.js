@@ -45,8 +45,10 @@ export default class FormSection extends Component {
         wrappedFetch(url, 'post', query).then(
             res => {
               console.log('res',res)
+              appStore.getToken(res.sessionToken)
+              appStore.getUserId(res.userID)
+              storeData('token', res.sessionToken)
               Actions.app()
-              storeData('token', JSON.stringify(res.sessionToken))
             }
           ).catch(err => console.log(err))
     }
@@ -84,7 +86,7 @@ export default class FormSection extends Component {
                     validate: [{
                     validator: 'isLength',
                     arguments: [6, 16],
-                    message: '{TITLE} must be between {ARGS[0]} and {ARGS[1]} characters'
+                    message: '请输入正确的验证码'
                     }]
                     }
                 }}
@@ -92,13 +94,13 @@ export default class FormSection extends Component {
                 <GiftedForm.TextInputWidget
                     name='phone'
                     title='手机号'
-                    placeholder='手机号'
+                    placeholder=''
                     clearButtonMode='while-editing'
                 />
                 <GiftedForm.TextInputWidget
                     name='checkCode' // mandatory
                     title='验证码'
-                    placeholder='验证码'
+                    placeholder=''
                     clearButtonMode='while-editing'
                 />
                 <GiftedForm.SubmitWidget

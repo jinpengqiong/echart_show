@@ -50,7 +50,7 @@ selectTimeRange = () => {
     month = parseInt(dateStr.substring(5,7))
     day = parseInt(dateStr.substring(8,10))
     Picker.init({
-    pickerTitleText:'选择到现在的开始时间',
+    pickerTitleText:'选择开始时间',
     pickerCancelBtnText:'取消',
     pickerConfirmBtnText:'确定',
     selectedValue:[year+'年',month+'月',day+'日'],
