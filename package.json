@@ -13,11 +13,9 @@
     "react": "16.8.3",
     "react-native": "0.59.4",
     "react-native-action-button": "^2.8.5",
-    "react-native-drawer": "^2.5.1",
     "react-native-gifted-form": "^0.1.1",
     "react-native-picker": "^4.3.7",
     "react-native-scrollable-tab-view": "^0.10.0",
-    "react-native-swiper": "^1.5.14",
     "react-native-tab-navigator": "^0.3.4",
     "react-native-vector-icons": "^6.4.2",
     "react-native-webview": "^5.10.0"
@@ -29,7 +27,6 @@
     "babel-jest": "^24.7.1",
     "jest": "^24.7.1",
     "metro-react-native-babel-preset": "^0.53.1",
-    "react-native-image-picker": "^0.28.1",
     "react-native-router-flux": "^4.0.6",
     "react-test-renderer": "16.8.3"
   },

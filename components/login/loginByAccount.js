@@ -85,7 +85,7 @@ export default class LoginByAccount extends Component {
                     validate: [{
                     validator: 'isLength',
                     arguments: [6, 16],
-                    message: '{TITLE} must be between {ARGS[0]} and {ARGS[1]} characters'
+                    message: '请输入正确的密码'
                     }]
                     }
                 }}
