@@ -30,9 +30,7 @@ export async function wrappedFetch(url, method, query={}){
     const token = await retrieveData('token')
     let headers = token ? { Authorization: 'Bearer ' + token } : {}
     if(method === 'get'){
-        return new Promise(
-          function(resolve, reject){
-            fetch(url, {
+        return fetch(url, {
               method: 'GET',
               headers: {
                 'Authorization': token ? { Authorization: 'Bearer ' + token } : {},
@@ -43,15 +41,12 @@ export async function wrappedFetch(url, method, query={}){
             .then((response) => response.json())
             .then((responseJson) => {
                 if(responseJson.error_code) return
-                resolve(responseJson)
-            }).catch(error => reject(error))
-          })
+                return Promise.resolve(responseJson)
+            }).catch(error => Promise.reject(error))
     }
     if(method === 'post'){
         headers['content-type'] = 'application/json'
-        return new Promise(
-          function(resolve, reject){
-            fetch(
+        return fetch(
             url,
             {
                 method: 'POST',
@@ -61,9 +56,7 @@ export async function wrappedFetch(url, method, query={}){
             .then((response) => response.json())
             .then((responseJson) => {
                 if(responseJson.error_code) return
-                resolve(responseJson)
-            }).catch(error => reject(error))
-          }
-        )
+                return Promise.resolve(responseJson)
+            }).catch(error => Promise.reject(error))
     }
 }

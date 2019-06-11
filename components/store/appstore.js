@@ -2,7 +2,7 @@ import { observable, action } from 'mobx';
 
 
 class AppStore {
-  @observable form = { };
+  @observable form = null;
   @observable originalRoomsData = null;
   @observable formatRoomsData = null;
   @observable token = null;
@@ -10,12 +10,29 @@ class AppStore {
   @observable roomId = -1;
   @observable startDate = null;
   @observable endDate = null;
+  @observable messageRef = null;
+  @observable testData = null;
   
 
 
   @action
+  getTestdata(value) {
+    this.testData = value;
+  }
+
+  @action
   handleFormChange(value) {
     this.form = value;
+  }
+
+  @action
+  getMessageRef(ref) {
+    this.messageRef = ref;
+  }
+
+  @action
+  showMessage(type, info) {
+    this.messageRef.alertWithType(type, info, '');;
   }
 
   @action

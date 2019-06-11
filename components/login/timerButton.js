@@ -67,9 +67,6 @@ export default  class TimerButton extends Component {
 
     sendCheckCode = () => {
         const { appStore } = this.props.store;
-        if(appStore.form && appStore.form.phone === ''){
-            return
-        }
         const url = `${HOST}/smsCode`
         const query = {
                     phone: appStore.form.phone,
@@ -82,12 +79,16 @@ export default  class TimerButton extends Component {
     }
 
     render() {
+        const { appStore } = this.props.store;
         const {onClick, style, textStyle, disableColor} = this.props;
         const {counting, timerTitle, selfEnable} = this.state;
         return (
             <View style={styles.container}>
                 <TouchableOpacity activeOpacity={counting ? 1 : 0.8} onPress={() => {
-                    if (!counting &&selfEnable) {
+                    if(!appStore.form || appStore.form.phone === ''){
+                        appStore.showMessage('error','先输入手机号再试')
+                        return
+                    }else if (!counting &&selfEnable) {
                         this.setState({selfEnable: false});
                         this.shouldStartCountting(true);
                         this.sendCheckCode()
@@ -96,7 +97,7 @@ export default  class TimerButton extends Component {
                     <View
                         style={styles.styleCodeView}>
                         <Text
-                            style={[{fontSize: 12}, textStyle, {color: ((!counting && selfEnable) ? textStyle.color : disableColor || 'gray')}]}>{timerTitle}</Text>
+                            style={[{fontSize: 12}, textStyle, {color: ((!counting && selfEnable) ? textStyle.color : disableColor || 'gray')}]}>{timerTitle}</Text> 
                     </View>
                 </TouchableOpacity>
             </View>

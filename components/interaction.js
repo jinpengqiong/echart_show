@@ -4,7 +4,7 @@ import { WebView } from 'react-native-webview';
 import { inject, observer } from 'mobx-react';
 import CommonActionButton from './actionButton/actionButton'
 import { retrieveData , wrappedFetch , clearData} from './request'
-
+import DropdownAlert from 'react-native-dropdownalert';
 @inject('store')
 @observer
 export default class Interaction extends Component {
@@ -16,6 +16,7 @@ export default class Interaction extends Component {
 
     componentDidMount(){
         const { appStore } = this.props.store;
+        appStore.getMessageRef(this.dropdown)
         appStore.getStartDate(null)
         retrieveData('token').then(
             res => {
@@ -44,7 +45,8 @@ export default class Interaction extends Component {
                 <WebView source={{ uri: appStore.startDate? `http://datav.aliyuncs.com/share/79702443f27bacaf626d743b0de3638e?roomid=${appStore.roomId}&tsStart=${appStore.startDate}&tsEnd=${appStore.endDate}`
                                                                 :
                                                             `http://datav.aliyuncs.com/share/79702443f27bacaf626d743b0de3638e?roomid=${appStore.roomId}&tsStart=${tsStart}&tsEnd=${tsEnd}`
-                }} />    
+                }} />   
+                <DropdownAlert ref={ref => this.dropdown = ref} /> 
             </>
         )
     }

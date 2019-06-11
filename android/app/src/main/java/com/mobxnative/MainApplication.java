@@ -16,7 +16,6 @@ import com.facebook.soloader.SoLoader;
 
 import java.util.Arrays;
 import java.util.List;
-import com.imagepicker.ImagePickerPackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 
 
@@ -32,11 +31,10 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new PickerViewPackage(),
+          new PickerViewPackage(),
           new AsyncStoragePackage(),
           new RNCWebViewPackage(),
-          new VectorIconsPackage(),
-          new ImagePickerPackage()
+          new VectorIconsPackage()
       );
     }
 

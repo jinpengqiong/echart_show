@@ -25,6 +25,7 @@ export default class CommonActionButton extends Component {
         onPickerConfirm: data => {
             console.log(data);
             appStore.getRoomId(data)
+            appStore.showMessage('success','设置成功')
         },
         onPickerCancel: data => {
             console.log(data);
@@ -69,6 +70,7 @@ selectTimeRange = () => {
         })
         appStore.getStartDate(str)
         appStore.getCurrentDate()
+        appStore.showMessage('success','设置成功')
     },
     onPickerCancel: (pickedValue, pickedIndex) => {
         console.log('date', pickedValue, pickedIndex);

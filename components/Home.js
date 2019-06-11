@@ -6,6 +6,7 @@ import { Actions } from 'react-native-router-flux'
 import { inject, observer } from 'mobx-react';
 import { HOST } from './constant' 
 import CommonActionButton from './actionButton/actionButton'
+import DropdownAlert from 'react-native-dropdownalert';
 
 const styles = StyleSheet.create({
     
@@ -21,6 +22,7 @@ const styles = StyleSheet.create({
     }
     componentDidMount(){
         const { appStore } = this.props.store;
+        appStore.getMessageRef(this.dropdown)
         appStore.getStartDate(null)
         retrieveData('token').then(
             res => {
@@ -66,25 +68,12 @@ const styles = StyleSheet.create({
         const tsEnd = parseInt((new Date().getTime())/1000)
         return (
             <>
-                {/* <View>
-                    <Text>{appStore.token}</Text>
-                    <Text>{appStore.userId}</Text>
-                    <Text>{JSON.stringify(appStore.formatRoomsData)}</Text>
-                    <Text>{JSON.stringify(appStore.startDate)}</Text>
-                    <Text>{JSON.stringify(appStore.endDate)}</Text>
-                    <Text>{JSON.stringify(appStore.roomId)}</Text>
-                    <Text>
-                    { appStore.startDate? `http://datav.aliyuncs.com/share/d081065571c55c57a5916b1efe181579?roomid=${appStore.roomId}&tsStart=${appStore.startDate}&tsEnd=${appStore.endDate}`
-                                                                :
-                                                            `http://datav.aliyuncs.com/share/d081065571c55c57a5916b1efe181579?roomid=${appStore.roomId}&tsStart=${tsStart}&tsEnd=${tsEnd}`
-                    }
-                    </Text>
-                </View> */}
                 <CommonActionButton />
                 <WebView source={{ uri: appStore.startDate? `http://datav.aliyuncs.com/share/d081065571c55c57a5916b1efe181579?roomid=${appStore.roomId}&tsStart=${appStore.startDate}&tsEnd=${appStore.endDate}`
                                                                 :
                                                             `http://datav.aliyuncs.com/share/d081065571c55c57a5916b1efe181579?roomid=${appStore.roomId}&tsStart=${tsStart}&tsEnd=${tsEnd}`
-                }} />   
+                }} />  
+                <DropdownAlert ref={ref => this.dropdown = ref} /> 
             </>
         )
     }
