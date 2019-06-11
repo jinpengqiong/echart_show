@@ -608,6 +608,11 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable node_modules_reactnativedropdownalert_assets_cancel
+drawable node_modules_reactnativedropdownalert_assets_error
+drawable node_modules_reactnativedropdownalert_assets_info
+drawable node_modules_reactnativedropdownalert_assets_success
+drawable node_modules_reactnativedropdownalert_assets_warn
 drawable node_modules_reactnativegiftedform_icons_check
 drawable node_modules_reactnativegiftedform_icons_checkmark
 drawable node_modules_reactnativegiftedform_icons_close
@@ -1086,7 +1091,6 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout dev_loading_view
 layout fps_view
-layout list_item
 layout notification_action
 layout notification_action_tombstone
 layout notification_template_custom_big
@@ -1343,7 +1347,6 @@ style CalendarDatePickerDialog
 style CalendarDatePickerStyle
 style ClockTimePickerDialog
 style ClockTimePickerStyle
-style DefaultExplainingPermissionsTheme
 style DialogAnimationFade
 style DialogAnimationSlide
 style Dialog_Full_Screen
@@ -1594,5 +1597,4 @@ styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewStubCompat android_id android_layout android_inflatedId
 xml file_provider_paths
-xml provider_paths
 xml rn_dev_preferences

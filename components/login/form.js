@@ -5,7 +5,6 @@ import { HOST } from '../constant'
 import { storeData, wrappedFetch } from '../request'
 import { Actions } from 'react-native-router-flux'
 import { inject, observer } from 'mobx-react';
-import DropdownAlert from 'react-native-dropdownalert';
 
 
 const styles = StyleSheet.create({
@@ -18,8 +17,6 @@ const styles = StyleSheet.create({
 @observer
 export default class FormSection extends Component {
     componentDidMount(){
-        const { appStore } = this.props.store;
-        appStore.getMessageRef(this.dropdown)
     }
 
     handleValueChange = values => {
@@ -55,6 +52,7 @@ export default class FormSection extends Component {
                 appStore.getToken(res.sessionToken)
                 appStore.getUserId(res.userID)
                 storeData('token', res.sessionToken)
+                GiftedFormManager.reset('smsLogin');
                 Actions.app()
                 appStore.showMessage('success','登录成功')
             }).catch(error => appStore.showMessage('error','登录失败，请重试'))
@@ -63,7 +61,6 @@ export default class FormSection extends Component {
     render() {
         const { appStore } = this.props.store;
         return (
-            <>
                 <GiftedForm
                     formStyles={{
                         containerView: {
@@ -131,8 +128,6 @@ export default class FormSection extends Component {
                         }}
                     />
             </GiftedForm>
-            <DropdownAlert ref={ref => this.dropdown = ref} /> 
-        </>
         )
     }
 }

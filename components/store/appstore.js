@@ -11,14 +11,14 @@ class AppStore {
   @observable startDate = null;
   @observable endDate = null;
   @observable messageRef = null;
-  @observable testData = null;
+  // @observable testData = null;
   
 
 
-  @action
-  getTestdata(value) {
-    this.testData = value;
-  }
+  // @action
+  // getTestdata(value) {
+  //   this.testData = value;
+  // }
 
   @action
   handleFormChange(value) {

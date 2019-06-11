@@ -4,7 +4,7 @@ import ScrollableTabView , { DefaultTabBar } from 'react-native-scrollable-tab-v
 import LoginByAccount from './loginByAccount'
 import LoginBySms from './loginBySms'
 import { inject, observer } from 'mobx-react';
-
+import DropdownAlert from 'react-native-dropdownalert';
 
 const styles = StyleSheet.create({
     
@@ -20,6 +20,8 @@ export default class Login extends Component {
         }
     }
     componentDidMount(){
+        const { appStore } = this.props.store;
+        appStore.getMessageRef(this.dropdown)
     }
     
     render() {
@@ -32,7 +34,8 @@ export default class Login extends Component {
                     renderTabBar={() => <DefaultTabBar/>}>
                     <LoginByAccount tabLabel="帐号登录" />
                     <LoginBySms tabLabel="验证码登录" />
-                </ScrollableTabView>  
+                </ScrollableTabView> 
+                <DropdownAlert ref={ref => this.dropdown = ref} />  
             </>          
         )
     }
