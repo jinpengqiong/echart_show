@@ -109,7 +109,7 @@ export default  class TimerButton extends Component {
 const styles = StyleSheet.create({
     container: {
         position: 'absolute',
-        bottom: '70%',
+        top: '16%',
         right: 10
     },
     styleCodeView: {
