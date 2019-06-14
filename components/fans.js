@@ -29,14 +29,6 @@ export default class Fans extends Component {
         const tsEnd = parseInt((new Date().getTime())/1000)
         return (
             <>
-                {/* <View>
-                    <Text>
-                    { appStore.startDate? `http://datav.aliyuncs.com/share/01e1c4f8db2235b28cc378c97557bd3b?roomid=${appStore.roomId}&tsStart=${appStore.startDate}&tsEnd=${appStore.endDate}`
-                                                                :
-                                                            `http://datav.aliyuncs.com/share/01e1c4f8db2235b28cc378c97557bd3b?roomid=${appStore.roomId}&tsStart=${tsStart}&tsEnd=${tsEnd}`
-                    }
-                    </Text>
-                </View> */}
                 <CommonActionButton />
                 <WebView source={{ uri: appStore.startDate? `http://datav.aliyuncs.com/share/01e1c4f8db2235b28cc378c97557bd3b?roomid=${appStore.roomId}&tsStart=${appStore.startDate}&tsEnd=${appStore.endDate}`
                                                                 :

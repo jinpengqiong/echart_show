@@ -6,7 +6,7 @@
 	<integer>9</integer>
 	<key>logs</key>
 	<dict>
-		<key>C04A41AA-9385-4C8B-9026-673C7FD1C085</key>
+		<key>11F311AF-9083-41CC-8949-5812EF1891D3</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,36 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>C04A41AA-9385-4C8B-9026-673C7FD1C085.xcactivitylog</string>
+			<string>11F311AF-9083-41CC-8949-5812EF1891D3.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>E</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>mobxnative project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>mobxnative</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building workspace mobxnative with scheme mobxnative and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>582187540.568277</real>
+			<key>timeStoppedRecording</key>
+			<real>582187553.92204297</real>
+			<key>title</key>
+			<string>Building workspace mobxnative with scheme mobxnative and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>11F311AF-9083-41CC-8949-5812EF1891D3</string>
+		</dict>
+		<key>9752AFE5-14CF-4A4F-AA86-9F1D4CF072B9</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>9752AFE5-14CF-4A4F-AA86-9F1D4CF072B9.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>E</string>
 			<key>schemeIdentifier-containerName</key>
@@ -27,13 +56,13 @@
 			<key>signature</key>
 			<string>Building project mobxnative with scheme mobxnative and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>578741330.58210695</real>
+			<real>582000780.61995196</real>
 			<key>timeStoppedRecording</key>
-			<real>578741339.252823</real>
+			<real>582000845.44811296</real>
 			<key>title</key>
 			<string>Building project mobxnative with scheme mobxnative and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>C04A41AA-9385-4C8B-9026-673C7FD1C085</string>
+			<string>9752AFE5-14CF-4A4F-AA86-9F1D4CF072B9</string>
 		</dict>
 	</dict>
 </dict>
