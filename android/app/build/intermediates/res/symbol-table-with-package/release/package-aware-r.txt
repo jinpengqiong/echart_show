@@ -1597,4 +1597,5 @@ styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewStubCompat android_id android_layout android_inflatedId
 xml file_provider_paths
+xml network_security_config
 xml rn_dev_preferences

@@ -20,12 +20,12 @@
         "source": "/Users/mac/Desktop/echart_show/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativegiftedform_icons_flags_flags_iso_48_pm.png"
     },
     {
-        "merged": "/Users/mac/Desktop/echart_show/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativegiftedform_icons_flags_flags_iso_48_mt.png.flat",
-        "source": "/Users/mac/Desktop/echart_show/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativegiftedform_icons_flags_flags_iso_48_mt.png"
-    },
-    {
         "merged": "/Users/mac/Desktop/echart_show/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativegiftedform_icons_flags_flags_iso_48_bb.png.flat",
         "source": "/Users/mac/Desktop/echart_show/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativegiftedform_icons_flags_flags_iso_48_bb.png"
+    },
+    {
+        "merged": "/Users/mac/Desktop/echart_show/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativegiftedform_icons_flags_flags_iso_48_mt.png.flat",
+        "source": "/Users/mac/Desktop/echart_show/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativegiftedform_icons_flags_flags_iso_48_mt.png"
     },
     {
         "merged": "/Users/mac/Desktop/echart_show/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativegiftedform_icons_flags_flags_iso_48_tr.png.flat",
@@ -84,12 +84,12 @@
         "source": "/Users/mac/Desktop/echart_show/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativegiftedform_icons_flags_flags_iso_48_gd.png"
     },
     {
-        "merged": "/Users/mac/Desktop/echart_show/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativegiftedform_icons_flags_flags_iso_48_ki.png.flat",
-        "source": "/Users/mac/Desktop/echart_show/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativegiftedform_icons_flags_flags_iso_48_ki.png"
-    },
-    {
         "merged": "/Users/mac/Desktop/echart_show/android/app/build/intermediates/res/merged/release/drawable-mdpi-v4_abc_ic_star_half_black_16dp.png.flat",
         "source": "/Users/mac/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/0d72de31eea2bc6df58e829ee2da7581/res/drawable-mdpi-v4/abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "/Users/mac/Desktop/echart_show/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativegiftedform_icons_flags_flags_iso_48_ki.png.flat",
+        "source": "/Users/mac/Desktop/echart_show/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativegiftedform_icons_flags_flags_iso_48_ki.png"
     },
     {
         "merged": "/Users/mac/Desktop/echart_show/android/app/build/intermediates/res/merged/release/layout_abc_list_menu_item_icon.xml.flat",
@@ -2278,6 +2278,10 @@
     {
         "merged": "/Users/mac/Desktop/echart_show/android/app/build/intermediates/res/merged/release/drawable_abc_dialog_material_background.xml.flat",
         "source": "/Users/mac/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/0d72de31eea2bc6df58e829ee2da7581/res/drawable/abc_dialog_material_background.xml"
+    },
+    {
+        "merged": "/Users/mac/Desktop/echart_show/android/app/build/intermediates/res/merged/release/xml_network_security_config.xml.flat",
+        "source": "/Users/mac/Desktop/echart_show/android/app/src/main/res/xml/network_security_config.xml"
     },
     {
         "merged": "/Users/mac/Desktop/echart_show/android/app/build/intermediates/res/merged/release/drawable-mdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",

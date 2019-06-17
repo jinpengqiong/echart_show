@@ -42,7 +42,7 @@ export default class FormSection extends Component {
                   },
                 body: JSON.stringify(query)
             })
-            .then((response) => response.json())
+            .then(response => response.json())
             .then(
                 res => {
                 if(res.error_code){

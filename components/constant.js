@@ -1,1 +1,1 @@
-export const HOST = 'http://www.mzliaoba.com/api'
+export const HOST = 'https://www.mzliaoba.com/api'

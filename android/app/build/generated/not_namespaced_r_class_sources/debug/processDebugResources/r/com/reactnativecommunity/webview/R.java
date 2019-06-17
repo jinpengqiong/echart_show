@@ -1820,6 +1820,6 @@ public final class R {
         private xml() {}
 
         public static final int file_provider_paths = 0x7f0e0000;
-        public static final int rn_dev_preferences = 0x7f0e0001;
+        public static final int rn_dev_preferences = 0x7f0e0002;
     }
 }
