@@ -3,7 +3,6 @@ import { View, Text } from 'react-native'
 import { WebView } from 'react-native-webview';
 import { inject, observer } from 'mobx-react';
 import CommonActionButton from './actionButton/actionButton'
-import { retrieveData , wrappedFetch , clearData} from './request'
 import DropdownAlert from 'react-native-dropdownalert';
 
 @inject('store')
@@ -14,13 +13,6 @@ export default class Fans extends Component {
         const { appStore } = this.props.store;
         appStore.getMessageRef(this.dropdown)
         appStore.getStartDate(null)
-        retrieveData('token').then(
-            res => {
-                if(!res){
-                    Actions.login()
-                }
-            }
-        ).catch( err => Actions.login())
     }
 
     render() {

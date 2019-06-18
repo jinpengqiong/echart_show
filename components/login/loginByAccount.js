@@ -57,6 +57,7 @@ export default class LoginByAccount extends Component {
                 appStore.getToken(res.sessionToken)
                 appStore.getUserId(res.userID)
                 storeData('token', res.sessionToken)
+                storeData('userId', JSON.stringify(res.userID))
                 GiftedFormManager.reset('account');
                 Actions.app()
                 appStore.showMessage('success','登录成功')

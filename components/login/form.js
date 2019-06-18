@@ -5,7 +5,7 @@ import { HOST } from '../constant'
 import { storeData, wrappedFetch } from '../request'
 import { Actions } from 'react-native-router-flux'
 import { inject, observer } from 'mobx-react';
-
+import AsyncStorage from '@react-native-community/async-storage';
 
 const styles = StyleSheet.create({
         myButton:{
@@ -52,6 +52,7 @@ export default class FormSection extends Component {
                 appStore.getToken(res.sessionToken)
                 appStore.getUserId(res.userID)
                 storeData('token', res.sessionToken)
+                storeData('userId', JSON.stringify(res.userID))
                 GiftedFormManager.reset('smsLogin');
                 Actions.app()
                 appStore.showMessage('success','登录成功')

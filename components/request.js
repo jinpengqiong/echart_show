@@ -12,13 +12,10 @@ export async function storeData(key, value){
 export async function retrieveData(key){
     try {
       const value = await AsyncStorage.getItem(key);
-      if (value !== null) {
-        console.log(value);
-        return Promise.resolve(value)
-      }
+      return value
      } catch (error) {
        // Error retrieving data
-       console.log('_retrieveData err',Promise.resolve(error))
+       console.log('_retrieveData err',error)
      }
   }
 

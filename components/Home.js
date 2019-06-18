@@ -24,26 +24,28 @@ const styles = StyleSheet.create({
         const { appStore } = this.props.store;
         appStore.getMessageRef(this.dropdown)
         appStore.getStartDate(null)
-        retrieveData('token').then(
-            res => {
-                if(!res){
-                    Actions.login()
-                }
-                this.getChartRooms(res)
-            }
-        ).catch( err => Actions.login())
+        this.getToken()
     }
 
-    getChartRooms = token => {
+    getToken = async () => {
+      const token = await retrieveData('token')
+      if(token){
+        this.getChartRooms(token)
+      }else {
+        Actions.login()
+      }
+    }
+
+    getChartRooms = async token => {
         const { appStore } = this.props.store;
-        const userId = appStore.userId
-        // const token = appStore.token
-        const url = `${HOST}/users/${userId}/ownedManagedRooms2?limit=100&skip=0`
-        fetch(url, {
+        const userId = await retrieveData('userId')
+        if(userId){
+          const url = `${HOST}/users/${userId}/ownedManagedRooms2?limit=100&skip=0`
+          fetch(url, {
             method: 'GET',
             headers: {
               'Authorization': `Bearer ${token}`,
-              'Content-Type': 'application/json',
+              'Content-Type': 'application/json'
             }
           })
           .then((response) => response.json())
@@ -57,7 +59,10 @@ const styles = StyleSheet.create({
             appStore.getOriginalRoomsData(responseJson.data)
             appStore.getFormatRoomsData(arr)
             appStore.initRoomId(responseJson.data)
-          })
+          }).catch(() => Actions.login())
+        }else {
+          Actions.login()
+        }
     }
 
     
