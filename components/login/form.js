@@ -5,7 +5,6 @@ import { HOST } from '../constant'
 import { storeData, wrappedFetch } from '../request'
 import { Actions } from 'react-native-router-flux'
 import { inject, observer } from 'mobx-react';
-import AsyncStorage from '@react-native-community/async-storage';
 
 const styles = StyleSheet.create({
         myButton:{
