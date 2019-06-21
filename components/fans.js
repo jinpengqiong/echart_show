@@ -12,20 +12,27 @@ export default class Fans extends Component {
     componentDidMount(){
         const { appStore } = this.props.store;
         appStore.getMessageRef(this.dropdown)
-        appStore.getStartDate(null)
+    }
+
+    componentWillReceiveProps(nextProps){
+        const { appStore } = this.props.store;
+        if(nextProps){
+            appStore.getMessageRef(this.dropdown)
+        }
     }
 
     render() {
         const { appStore } = this.props.store;
         const tsStart = parseInt((new Date(new Date().toLocaleDateString()).getTime())/1000)
         const tsEnd = parseInt((new Date().getTime())/1000)
+        const link = appStore.startDate? 
+        `http://datav.aliyuncs.com/share/01e1c4f8db2235b28cc378c97557bd3b?roomid=${appStore.roomId}&tsStart=${appStore.startDate}&tsEnd=${appStore.endDate}`
+                                            :
+        `http://datav.aliyuncs.com/share/01e1c4f8db2235b28cc378c97557bd3b?roomid=${appStore.roomId}&tsStart=${tsStart}&tsEnd=${tsEnd}`
         return (
             <>
                 <CommonActionButton />
-                <WebView source={{ uri: appStore.startDate? `http://datav.aliyuncs.com/share/01e1c4f8db2235b28cc378c97557bd3b?roomid=${appStore.roomId}&tsStart=${appStore.startDate}&tsEnd=${appStore.endDate}`
-                                                                :
-                                                            `http://datav.aliyuncs.com/share/01e1c4f8db2235b28cc378c97557bd3b?roomid=${appStore.roomId}&tsStart=${tsStart}&tsEnd=${tsEnd}`
-                }} />   
+                <WebView source={{ uri: link }} />   
                 <DropdownAlert ref={ref => this.dropdown = ref} />  
             </>
         )

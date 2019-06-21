@@ -64,13 +64,13 @@ selectTimeRange = () => {
         month = month.padStart(2,'0')
         var day = pickedValue[2].substring(0,pickedValue[2].length-1)
         day = day.padStart(2,'0')
-        let str = year+'-'+month+'-'+day
-        this.setState({
-            currentDate:str,
-        })
+        let str = year+'/'+month+'/'+day
         appStore.getStartDate(str)
         appStore.getCurrentDate()
         appStore.showMessage('success','设置成功')
+        this.setState({
+            currentDate:this._getCurrentDate()
+        })
     },
     onPickerCancel: (pickedValue, pickedIndex) => {
         console.log('date', pickedValue, pickedIndex);

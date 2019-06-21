@@ -23,9 +23,15 @@ const styles = StyleSheet.create({
     componentDidMount(){
         const { appStore } = this.props.store;
         appStore.getMessageRef(this.dropdown)
-        appStore.getStartDate(null)
         this.getToken()
     }
+
+    componentWillReceiveProps(nextProps){
+      const { appStore } = this.props.store;
+      if(nextProps){
+          appStore.getMessageRef(this.dropdown)
+      }
+  }
 
     getToken = async () => {
       const token = await retrieveData('token')
@@ -71,13 +77,14 @@ const styles = StyleSheet.create({
         const { appStore } = this.props.store;
         const tsStart = parseInt((new Date(new Date().toLocaleDateString()).getTime())/1000)
         const tsEnd = parseInt((new Date().getTime())/1000)
+        const link = appStore.startDate? 
+        `http://datav.aliyuncs.com/share/d081065571c55c57a5916b1efe181579?roomid=${appStore.roomId}&tsStart=${appStore.startDate}&tsEnd=${appStore.endDate}`
+          :
+        `http://datav.aliyuncs.com/share/d081065571c55c57a5916b1efe181579?roomid=${appStore.roomId}&tsStart=${tsStart}&tsEnd=${tsEnd}`
         return (
             <>
                 <CommonActionButton />
-                <WebView source={{ uri: appStore.startDate? `http://datav.aliyuncs.com/share/d081065571c55c57a5916b1efe181579?roomid=${appStore.roomId}&tsStart=${appStore.startDate}&tsEnd=${appStore.endDate}`
-                                                                :
-                                                            `http://datav.aliyuncs.com/share/d081065571c55c57a5916b1efe181579?roomid=${appStore.roomId}&tsStart=${tsStart}&tsEnd=${tsEnd}`
-                }} />  
+                <WebView source={{ uri:link }} />  
                 <DropdownAlert ref={ref => this.dropdown = ref} /> 
             </>
         )

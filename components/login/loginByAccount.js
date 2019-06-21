@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import { View, Text, StyleSheet, Button } from 'react-native'
 import { GiftedForm, GiftedFormManager } from 'react-native-gifted-form'
 import { HOST } from '../constant' 
-import { storeData, wrappedFetch } from '../request'
+import { storeData } from '../request'
 import { Actions } from 'react-native-router-flux'
 import { inject, observer } from 'mobx-react';
 
