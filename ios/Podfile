@@ -7,10 +7,10 @@ target 'mobxnative' do
 
   # Pods for mobxnative
 
-  # target 'mobxnative-tvOSTests' do
-  #   inherit! :search_paths
-  #   # Pods for testing
-  # end
+  target 'mobxnative-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
 
   target 'mobxnativeTests' do
     inherit! :search_paths
@@ -25,12 +25,25 @@ target 'mobxnative-tvOS' do
 
   # Pods for mobxnative-tvOS
 
-  target 'mobxnative-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  # target 'mobxnative-tvOSTests' do
+  #   inherit! :search_paths
+  #   # Pods for testing
+  # end
 
 end
 
-# pod 'Picker', :path => '../node_modules/react-native-picker'
-# pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+pod 'React', :path => '../node_modules/react-native', :subspecs => [
+  'RCTTest',
+]
+pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+pod 'Picker', :path => '../node_modules/react-native-picker'
+pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+post_install do |installer|
+installer.pods_project.targets.each do |target|
+if target.name == "React"
+target.remove_from_project
+end
+end
+end
